@@ -285,7 +285,7 @@ h2{
     font-size: 20px;
     opacity: 1.5;
     margin: 0 0 24px;
-    color: #af2020;
+    color: #aa3939;
     width: 50%;
 }
 .miniCards {
@@ -339,6 +339,17 @@ h2{
 }
 .skillsHead {
     margin-top: 50px;
+}
+.sectionLabel {
+    color: #aa3939;
+    font-family: "Syne", sans-serif;
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+.sectionLabel::before {
+    content: "• ";
 }
 .eyebrow {
     color: #aa3939;
@@ -852,6 +863,9 @@ section:target .contactHead {
 
     .eyebrow {
         font-size: 15px;
+    }
+    .sectionLabel {
+        font-size: 30px;
     }
     .skillsTitle,
     .projectsTitle,
