@@ -104,19 +104,32 @@ nav a::after {
     }
 }
 
-nav li:last-child a {
-    color: #fff;
-    box-shadow: inset 0 0 0 1px rgba(170, 57, 57, 0.7);
+body {
+    timeline-scope: --s-home, --s-about, --s-skills, --s-projects, --s-contact;
 }
-nav li:last-child a::after {
-    display: none;
+#home     { view-timeline-name: --s-home; }
+#about    { view-timeline-name: --s-about; }
+#skills   { view-timeline-name: --s-skills; }
+#projects { view-timeline-name: --s-projects; }
+#contact  { view-timeline-name: --s-contact; }
+section {
+    view-timeline-inset: 50% 50%;
 }
-@media (hover: hover) {
-    nav li:last-child a:hover {
-        background: #aa3939;
-        box-shadow: inset 0 0 0 1px #aa3939;
+@keyframes navActive {
+    from, to {
+        color: #fff;
+        box-shadow: inset 0 0 0 1px rgba(170, 57, 57, 0.8);
     }
 }
+nav a {
+    animation: navActive linear none;
+    animation-range: cover;
+}
+nav a[href="#home"]     { animation-timeline: --s-home; }
+nav a[href="#about"]    { animation-timeline: --s-about; }
+nav a[href="#skills"]   { animation-timeline: --s-skills; }
+nav a[href="#projects"] { animation-timeline: --s-projects; }
+nav a[href="#contact"]  { animation-timeline: --s-contact; }
 .disc{
     padding-bottom: 200px;
     width: 40%;
@@ -285,7 +298,7 @@ h2{
     font-size: 20px;
     opacity: 1.5;
     margin: 0 0 24px;
-    color: #aa3939;
+    color: #af2020;
     width: 50%;
 }
 .miniCards {
