@@ -9,7 +9,7 @@ body {
     color: #f4f4f4;
     font-family: "Inter", system-ui, sans-serif;
 }
-/* new fonts: hero + about only */
+
 #home,
 #about {
     font-family: "Space Grotesk", system-ui, sans-serif;
@@ -39,7 +39,6 @@ section:first-of-type {
     filter: brightness(0.45);
 }
 
-
 header{
     position: fixed;
     top: 0;
@@ -53,7 +52,6 @@ header{
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
 }
 
-/* glass pill around the links */
 nav ul{
     display: flex;
     gap: 4px;
@@ -74,7 +72,6 @@ nav ul li {
     font-weight: 500;
 }
 
-/* links */
 nav a {
     position: relative;
     display: block;
@@ -107,7 +104,6 @@ nav a::after {
     }
 }
 
-/* "Contact me" as a glowing red button */
 nav li:last-child a {
     color: #fff;
     box-shadow: inset 0 0 0 1px rgba(170, 57, 57, 0.7);
@@ -131,15 +127,18 @@ h1{
     margin-bottom: 0;
 
 }
-p{  
+p{
     font-size: 30px;
 
 }
 .logo {
     position: absolute;
+    top: 2px;
+    z-index: 101;
+    animation: fadeIn 1s ease 0.2s both;
     left: 4vw;
   padding: 0 24px;
-  
+
     height: 100px;
     width: auto;
 }
@@ -192,7 +191,7 @@ h2{
 }
 .aboutText {
   display: flex;
-  
+
   gap: 100px;
 }
 #txtAB{
@@ -205,7 +204,6 @@ h2{
     margin-left: 350px;
     width: 70%;
 }
-
 
 .stat:not(:first-child) {
     padding-left: 7vw;
@@ -244,7 +242,6 @@ h2{
     background: radial-gradient(ellipse 55% 45% at 85% 50%, rgba(170, 57, 57, 0.12), transparent 70%);
 }
 
-/* big section titles: Skills, Projects, Contact */
 .skillsTitle,
 .projectsTitle,
 .contactTitle {
@@ -330,7 +327,7 @@ h2{
     width: 45px;
     border-radius: 8px;
 }
-/* ---------- Projects ---------- */
+
 #projects {
     padding: 80px 5vw;
     background: radial-gradient(ellipse 70% 40% at 50% 45%, rgba(170, 57, 57, 0.1), transparent 70%);
@@ -370,14 +367,12 @@ h2{
     margin: 0 auto;
 }
 
-/* list */
 .projectsList {
     display: flex;
     flex-direction: column;
     gap: 60px;
 }
 
-/* card */
 .projectCard {
     display: flex;
     align-items: center;
@@ -394,7 +389,6 @@ h2{
     }
 }
 
-/* phones: red border on tap, removed when tapping elsewhere */
 .miniCard,
 .projectCard {
     outline: none;
@@ -414,7 +408,6 @@ h2{
     background: linear-gradient(to left, #1a0606, #0a0a0a 60%);
 }
 
-/* image */
 .projectImg {
     flex: 0 0 50%;
     padding: 24px;
@@ -435,7 +428,7 @@ h2{
       max-height: 200px;
       width: auto;
 }
-/* text */
+
 .projectInfo {
     flex: 1;
 }
@@ -467,7 +460,6 @@ h2{
     margin-bottom: 4px;
 }
 
-
 #contact {
     padding: 80px 5vw 40px;
     display: flex;
@@ -496,7 +488,6 @@ h2{
     margin: 0 auto;
 }
 
-
 .contactForm {
     width: 100%;
     max-width: 950px;
@@ -509,7 +500,7 @@ h2{
     border: 1px solid #222;
     border-radius: 16px;
     background: linear-gradient(160deg, #1a0606, #0a0a0a 60%);
-    
+
 }
 .formRow {
     display: flex;
@@ -642,8 +633,6 @@ h2{
     border-top: 1px solid #1a1a1a;
 }
 
-
-/* ---------- Hero fade-in on page load ---------- */
 @keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -669,7 +658,6 @@ header {
     animation: fadeUp 1s ease 0.75s both;
 }
 
-/* turn animations off for people who set "reduce motion" on their device */
 @media (prefers-reduced-motion: reduce) {
     .bgVideo,
     header,
@@ -680,17 +668,12 @@ header {
     }
 }
 
-
-/* ---------- Nav tap + section arrival animations ---------- */
-
-/* the link you press shrinks and flashes red */
 nav a:active {
     transform: scale(0.9);
     background: rgba(170, 57, 57, 0.35);
     transition-duration: 0.1s;
 }
 
-/* the section you land on animates its title in */
 @keyframes arrive {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -714,15 +697,8 @@ section:target .contactHead {
     }
 }
 
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-
-/* ---------- Phones (laptops use the styles above) ---------- */
 @media (max-width: 768px) {
 
-    /* nav */
     html {
         scroll-padding-top: 80px;
     }
@@ -756,13 +732,11 @@ section:target .contactHead {
         bottom: 3px;
     }
 
-    /* global text */
     p {
         font-size: 17px;
         line-height: 1.5;
     }
 
-    /* hero */
     section:first-of-type {
         padding-top: 80px;
     }
@@ -788,7 +762,6 @@ section:target .contactHead {
         mask-composite: add;
     }
 
-    /* about */
     section {
         min-height: auto;
     }
@@ -831,7 +804,6 @@ section:target .contactHead {
         margin-top: 10px;
     }
 
-    /* skills */
     #skills {
         padding: 60px 6vw;
     }
@@ -878,7 +850,6 @@ section:target .contactHead {
         font-size: 12px;
     }
 
-    /* section headers */
     .eyebrow {
         font-size: 15px;
     }
@@ -898,7 +869,6 @@ section:target .contactHead {
         margin-bottom: 40px;
     }
 
-    /* projects */
     #projects {
         padding: 60px 6vw;
     }
@@ -937,7 +907,6 @@ section:target .contactHead {
         margin-bottom: 8px;
     }
 
-    /* contact */
     #contact {
         padding: 60px 6vw 30px;
     }
