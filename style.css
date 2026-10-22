@@ -315,9 +315,11 @@ h2{
     border-radius: 10px;
     transition: border-color 0.25s, transform 0.25s;
 }
-.miniCard:hover {
-    border-color: #aa3939;
-    transform: translateY(-3px);
+@media (hover: hover) {
+    .miniCard:hover {
+        border-color: #aa3939;
+        transform: translateY(-3px);
+    }
 }
 .miniCard img {
     width: 40px;
@@ -385,8 +387,26 @@ h2{
     background: linear-gradient(to right, #1a0606, #0a0a0a 60%);
     transition: border-color 0.3s;
 }
-.projectCard:hover {
-    border-color: #8f1515;
+@media (hover: hover) {
+    .projectCard:hover {
+        border-color: #8f1515;
+    }
+}
+
+/* phones: red border on tap, removed when tapping elsewhere */
+.miniCard,
+.projectCard {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+@media (hover: none) {
+    .miniCard:focus {
+        border-color: #aa3939;
+        transform: translateY(-3px);
+    }
+    .projectCard:focus {
+        border-color: #8f1515;
+    }
 }
 .projectCard:nth-child(even) {
     flex-direction: row-reverse;
@@ -648,6 +668,48 @@ header {
     animation: fadeUp 1s ease 0.75s both;
 }
 
+/* turn animations off for people who set "reduce motion" on their device */
+@media (prefers-reduced-motion: reduce) {
+    .bgVideo,
+    header,
+    .textPhoto img,
+    #home h1,
+    #home .disc p {
+        animation: none;
+    }
+}
+
+
+/* ---------- Nav tap + section arrival animations ---------- */
+
+/* the link you press shrinks and flashes red */
+nav a:active {
+    transform: scale(0.9);
+    background: rgba(170, 57, 57, 0.35);
+    transition-duration: 0.1s;
+}
+
+/* the section you land on animates its title in */
+@keyframes arrive {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+section:target > h2,
+section:target .projectsHead,
+section:target .contactHead {
+    animation: arrive 0.7s ease 0.35s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    nav a:active {
+        transform: none;
+    }
+    section:target > h2,
+    section:target .projectsHead,
+    section:target .contactHead {
+        animation: none;
+    }
+}
 
 
 /* =========================================================
@@ -729,6 +791,7 @@ header {
     }
     section:first-of-type {
         min-height: 100vh;
+        min-height: 100svh;
     }
     #about {
         padding: 60px 6vw;
